@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baddaj Chop – Social Growth</title>
+ 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;900&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+ 
+  <!-- Three.js (3D animations) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+ 
+  <!-- ✦ External Stylesheet ✦ -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ 
+<!-- PARTICLE CANVAS -->
+<canvas id="particles"></canvas>
+ 
+<!-- NAV -->
+<nav>
+  <div class="logo-wrap" onclick="scrollTo({top:0,behavior:'smooth'})">
+    <div class="logo-3d-wrap"><canvas id="logo-canvas" width="44" height="44"></canvas></div>
+    <span class="logo-txt">BADDAJ CHOP</span>
+  </div>
+  <ul class="nl" id="navLinks">
+    <li><a href="#services" data-en="Services" data-ar="الخدمات">Services</a></li>
+    <li><a href="#payment" data-en="Payment" data-ar="الدفع">Payment</a></li>
+    <li><a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">عربية</button>
+    <button class="ham" onclick="toggleMob()">☰</button>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="#services" onclick="toggleMob()" data-en="Services" data-ar="الخدمات">Services</a>
+  <a href="#payment" onclick="toggleMob()" data-en="Payment" data-ar="الدفع">Payment</a>
+  <a href="#contact" onclick="toggleMob()" data-en="Contact" data-ar="تواصل">Contact</a>
+</div>
+ 
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-badge"><span>✦</span><span data-en="Social Media Growth Services" data-ar="خدمات النمو على السوشيال ميديا">Social Media Growth Services</span><span>✦</span></div>
+  <span class="hero-cart" id="heroCart">🛒</span>
+  <h1 class="brand" id="h1Brand">BADDAJ CHOP</h1>
+  <p class="sub-line" data-en="Fast · Safe · Quality · 24/7" data-ar="سريع · آمن · جودة · متواصل">Fast · Safe · Quality · 24/7</p>
+  <p class="hero-p" id="heroP">Real followers, views, and likes — delivered instantly across every major platform.</p>
+  <div class="hero-stats">
+    <div><span class="st-n">24/7</span><span class="st-l" data-en="Support" data-ar="دعم">Support</span></div>
+    <div><span class="st-n">100%</span><span class="st-l" data-en="Safe" data-ar="آمن">Safe</span></div>
+    <div><span class="st-n">10+</span><span class="st-l" data-en="Platforms" data-ar="منصة">Platforms</span></div>
+  </div>
+  <div class="hero-btns">
+    <a href="#services" class="btn-p" id="ctaMain" data-en="Explore Services" data-ar="تصفح الخدمات">Explore Services</a>
+    <a href="#contact" class="btn-o" id="ctaContact" data-en="Contact Us" data-ar="تواصل معنا">Contact Us</a>
+  </div>
+</section>
+ 
+<!-- FEATURES BAR -->
+<div class="feat-bar">
+  <div class="feat">
+    <span class="feat-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+    <div><span class="feat-t" data-en="Ultra Fast" data-ar="سرعة فائقة">Ultra Fast</span><span class="feat-s" data-en="Delivery in minutes" data-ar="تسليم خلال دقائق">Delivery in minutes</span></div>
+  </div>
+  <div class="feat">
+    <span class="feat-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="10" rx="2" stroke="white" stroke-width="1.8" fill="none"/><path d="M8 11V7a4 4 0 0 1 8 0v4" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="12" cy="16" r="1.5" fill="white"/></svg></span>
+    <div><span class="feat-t" data-en="No Password" data-ar="بدون كلمة سر">No Password</span><span class="feat-s" data-en="100% secure" data-ar="100% آمن">100% secure</span></div>
+  </div>
+  <div class="feat">
+    <span class="feat-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M22 4L12 14.01l-3-3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+    <div><span class="feat-t" data-en="Real & Active" data-ar="حقيقي ونشط">Real & Active</span><span class="feat-s" data-en="High quality only" data-ar="جودة عالية فقط">High quality only</span></div>
+  </div>
+  <div class="feat">
+    <span class="feat-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9c1.27 2.162 2.838 3.73 5 5l1.14-.95a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 21 15.38v1.54z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+    <div><span class="feat-t" data-en="24/7 Support" data-ar="دعم 24/7">24/7 Support</span><span class="feat-s" data-en="Always here for you" data-ar="دائماً بخدمتك">Always here for you</span></div>
+  </div>
+</div>
+ 
+<!-- SERVICES -->
+<section id="services" class="section reveal">
+  <span class="sec-label" data-en="Our Services" data-ar="خدماتنا">Our Services</span>
+  <h2 class="sec-title" id="secServicesTitle">CHOOSE YOUR PLATFORM</h2>
+ 
+  <!-- 3D Platform Cards -->
+  <div class="platform-cards" id="platformCards">
+ 
+    <!-- INSTAGRAM -->
+    <div class="pcard active" id="pc-instagram" onclick="switchPlatform('instagram')">
+      <span class="pcard-badge" data-en="Most Popular" data-ar="الأكثر طلباً">Most Popular</span>
+      <span class="pcard-icon">
+        <!-- Instagram gradient SVG logo -->
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="ig-bg" cx="30%" cy="107%" r="130%">
+              <stop offset="0%" stop-color="#fdf497"/>
+              <stop offset="5%" stop-color="#fdf497"/>
+              <stop offset="45%" stop-color="#fd5949"/>
+              <stop offset="60%" stop-color="#d6249f"/>
+              <stop offset="90%" stop-color="#285AEB"/>
+            </radialGradient>
+          </defs>
+          <rect width="44" height="44" rx="11" fill="url(#ig-bg)"/>
+          <rect x="11" y="11" width="22" height="22" rx="6" stroke="white" stroke-width="2.2" fill="none"/>
+          <circle cx="22" cy="22" r="5.5" stroke="white" stroke-width="2.2" fill="none"/>
+          <circle cx="29.5" cy="14.5" r="1.4" fill="white"/>
+        </svg>
+      </span>
+      <div class="pcard-name" data-en="Instagram" data-ar="إنستجرام">Instagram</div>
+      <div class="pcard-sub" data-en="Views · Likes · Followers" data-ar="مشاهدات · إعجابات · متابعون">Views · Likes · Followers</div>
+    </div>
+ 
+    <!-- YOUTUBE -->
+    <div class="pcard" id="pc-youtube" onclick="switchPlatform('youtube')">
+      <span class="pcard-icon">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="44" height="44" rx="11" fill="#FF0000"/>
+          <path d="M35.5 16.5C35.5 16.5 35.2 14.7 34.4 13.9C33.4 12.8 32.3 12.8 31.8 12.7C28.4 12.5 23 12.5 23 12.5C23 12.5 17.6 12.5 14.2 12.7C13.7 12.8 12.6 12.8 11.6 13.9C10.8 14.7 10.5 16.5 10.5 16.5C10.5 16.5 10.2 18.6 10.2 20.7V22.7C10.2 24.8 10.5 26.9 10.5 26.9C10.5 26.9 10.8 28.7 11.6 29.5C12.6 30.6 13.9 30.6 14.5 30.7C16.6 30.9 23 31 23 31C23 31 28.4 31 31.8 30.7C32.3 30.6 33.4 30.6 34.4 29.5C35.2 28.7 35.5 26.9 35.5 26.9C35.5 26.9 35.8 24.8 35.8 22.7V20.7C35.8 18.6 35.5 16.5 35.5 16.5Z" fill="white"/>
+          <polygon points="19.5,18 19.5,27 27.5,22.5" fill="#FF0000"/>
+        </svg>
+      </span>
+      <div class="pcard-name" data-en="YouTube" data-ar="يوتيوب">YouTube</div>
+      <div class="pcard-sub" data-en="Views · Hours · Subscribers" data-ar="مشاهدات · ساعات · مشتركون">Views · Hours · Subscribers</div>
+    </div>
+ 
+    <!-- TIKTOK -->
+    <div class="pcard" id="pc-tiktok" onclick="switchPlatform('tiktok')">
+      <span class="pcard-icon">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="44" height="44" rx="11" fill="#010101"/>
+          <!-- TikTok shadow cyan -->
+          <path d="M26.5 9.5h-4v16.8a3.9 3.9 0 0 1-3.9 3.7 3.9 3.9 0 0 1-3.9-3.9 3.9 3.9 0 0 1 3.9-3.9c.38 0 .74.06 1.1.15V18c-.36-.05-.73-.08-1.1-.08a8.22 8.22 0 0 0-8.1 8.22 8.22 8.22 0 0 0 8.1 8.22 8.22 8.22 0 0 0 8.1-8.22V18a12.5 12.5 0 0 0 7.3 2.34v-4a8.1 8.1 0 0 1-7.3-6.84z" fill="#69C9D0" opacity=".7"/>
+          <!-- TikTok main white -->
+          <path d="M25.5 8.5h-4v16.8a3.9 3.9 0 0 1-3.9 3.7 3.9 3.9 0 0 1-3.9-3.9 3.9 3.9 0 0 1 3.9-3.9c.38 0 .74.06 1.1.15V17c-.36-.05-.73-.08-1.1-.08a8.22 8.22 0 0 0-8.1 8.22 8.22 8.22 0 0 0 8.1 8.22 8.22 8.22 0 0 0 8.1-8.22V17a12.5 12.5 0 0 0 7.3 2.34v-4a8.1 8.1 0 0 1-7.3-6.84z" fill="white"/>
+          <!-- TikTok red accent -->
+          <path d="M25.5 8.5h-4v16.8a3.9 3.9 0 0 1-3.9 3.7 3.9 3.9 0 0 1-3.9-3.9 3.9 3.9 0 0 1 3.9-3.9c.38 0 .74.06 1.1.15V17c-.36-.05-.73-.08-1.1-.08a8.22 8.22 0 0 0-8.1 8.22 8.22 8.22 0 0 0 8.1 8.22 8.22 8.22 0 0 0 8.1-8.22V17a12.5 12.5 0 0 0 7.3 2.34v-4a8.1 8.1 0 0 1-7.3-6.84z" fill="#EE1D52" opacity=".35"/>
+        </svg>
+      </span>
+      <div class="pcard-name" data-en="TikTok" data-ar="تيك توك">TikTok</div>
+      <div class="pcard-sub" data-en="Likes · Followers" data-ar="إعجابات · متابعون">Likes · Followers</div>
+    </div>
+ 
+    <!-- FACEBOOK -->
+    <div class="pcard" id="pc-facebook" onclick="switchPlatform('facebook')">
+      <span class="pcard-icon">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="44" height="44" rx="11" fill="#1877F2"/>
+          <path d="M29.5 22H25v-3c0-1.1.9-1.5 1.5-1.5H29.5V13.5H25.5C21.4 13.5 19 16.2 19 20v2h-3.5v5H19V36.5h6V27h3.5l1-5z" fill="white"/>
+        </svg>
+      </span>
+      <div class="pcard-name" data-en="Facebook" data-ar="فيسبوك">Facebook</div>
+      <div class="pcard-sub" data-en="Likes · Followers · Views" data-ar="إعجابات · متابعون · مشاهدات">Likes · Followers · Views</div>
+    </div>
+ 
+    <!-- MORE -->
+    <div class="pcard" id="pc-other" onclick="switchPlatform('other')">
+      <span class="pcard-icon" style="display:flex;gap:4px;flex-wrap:wrap;width:44px">
+        <!-- Twitter/X -->
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect width="20" height="20" rx="5" fill="#000"/>
+          <path d="M11.4 9.1L15.7 4h-1l-3.7 4.3L8 4H4l4.5 6.6L4 16h1l3.9-4.6 3.1 4.6H16L11.4 9.1zm-1.4 1.6l-.5-.6-3.6-5.2h1.6l3 4.4.5.6 3.7 5.4h-1.6l-3.1-4.6z" fill="white"/>
+        </svg>
+        <!-- Spotify -->
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect width="20" height="20" rx="5" fill="#1DB954"/>
+          <circle cx="10" cy="10" r="6.5" fill="#1DB954"/>
+          <path d="M6.5 8.2c2.2-.7 4.9-.5 6.8.8" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M7 10.5c1.8-.5 3.9-.4 5.5.7" stroke="white" stroke-width="1.1" stroke-linecap="round"/>
+          <path d="M7.5 12.7c1.4-.4 3-.3 4.2.5" stroke="white" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+        <!-- Telegram -->
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect width="20" height="20" rx="5" fill="#26A5E4"/>
+          <path d="M4 10l10-5-3 10-3-3-4-2zm4 2l5-5-5 5v3l-1-3z" fill="white"/>
+        </svg>
+        <!-- Snapchat -->
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect width="20" height="20" rx="5" fill="#FFFC00"/>
+          <path d="M10 4c-2.2 0-3.8 1.7-3.8 3.8v.5c-.5.1-1 .3-1 .7 0 .3.3.5.7.6-.2.5-.6 1-1.2 1.2-.2.1-.3.3-.2.5.3.7 1.4.9 2.2 1 .2.3.4.7 1.2.7.5 0 1.2-.3 2.1-.3.9 0 1.6.3 2.1.3.8 0 1-.4 1.2-.7.8-.1 1.9-.3 2.2-1 .1-.2 0-.4-.2-.5-.6-.2-1-.7-1.2-1.2.4-.1.7-.3.7-.6 0-.4-.5-.6-1-.7v-.5C13.8 5.7 12.2 4 10 4z" fill="#010101" opacity=".85"/>
+        </svg>
+      </span>
+      <div class="pcard-name" data-en="More" data-ar="المزيد">More</div>
+      <div class="pcard-sub" data-en="Twitter · Spotify · Telegram +" data-ar="تويتر · سبوتيفاي · تيليجرام +">Twitter · Spotify · Telegram +</div>
+    </div>
+ 
+  </div>
+ 
+  <!-- INSTAGRAM PANEL -->
+  <div class="tab-panel act" id="panel-instagram">
+    <div class="psec">
+      <div class="psec-head" data-en="👁 Views" data-ar="👁 مشاهدات">👁 Views</div>
+      <div class="pgrid">
+        <div class="pcell"><span class="pcell-qty">10K</span><span class="pcell-price">50 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">20K</span><span class="pcell-price">100 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">30K</span><span class="pcell-price">150 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">40K</span><span class="pcell-price">200 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">50K</span><span class="pcell-price">250 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">60K</span><span class="pcell-price">300 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">70K</span><span class="pcell-price">350 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">80K</span><span class="pcell-price">400 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">90K</span><span class="pcell-price">450 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">100K</span><span class="pcell-price">500 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">200K</span><span class="pcell-price">1000 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">500K</span><span class="pcell-price">2500 dh</span></div>
+      </div>
+    </div>
+    <div class="psec">
+      <div class="psec-head" data-en="❤️ Likes" data-ar="❤️ إعجابات">❤️ Likes</div>
+      <div class="pgrid">
+        <div class="pcell"><span class="pcell-qty">1K</span><span class="pcell-price">10 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">5K</span><span class="pcell-price">20 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">10K</span><span class="pcell-price">40 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">50K</span><span class="pcell-price">160 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">100K</span><span class="pcell-price">280 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">500K</span><span class="pcell-price">1500 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">1M</span><span class="pcell-price">2800 dh</span></div>
+      </div>
+    </div>
+    <div class="psec">
+      <div class="psec-head" data-en="👥 Followers" data-ar="👥 متابعون">👥 Followers</div>
+      <div class="pgrid">
+        <div class="pcell"><span class="pcell-qty">1K</span><span class="pcell-price">25 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">2K</span><span class="pcell-price">50 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">3K</span><span class="pcell-price">75 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">4K</span><span class="pcell-price">100 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">5K</span><span class="pcell-price">125 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">10K</span><span class="pcell-price">250 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">20K</span><span class="pcell-price">500 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">30K</span><span class="pcell-price">750 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">40K</span><span class="pcell-price">1000 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">50K</span><span class="pcell-price">1250 dh</span></div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- YOUTUBE PANEL -->
+  <div class="tab-panel" id="panel-youtube">
+    <div class="psec">
+      <div class="psec-head" data-en="👁 Views — Real Moroccan Audience" data-ar="👁 مشاهدات حقيقية — جمهور مغربي">👁 Views — Real Moroccan Audience</div>
+      <div class="pgrid">
+        <div class="pcell"><span class="pcell-qty">1K</span><span class="pcell-price">100 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">5K</span><span class="pcell-price">500 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">10K</span><span class="pcell-price">1000 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">20K</span><span class="pcell-price">2000 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">30K</span><span class="pcell-price">3000 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">40K</span><span class="pcell-price">4000 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">50K</span><span class="pcell-price">5000 dh</span></div>
+      </div>
+    </div>
+    <div class="psec">
+      <div class="psec-head" data-en="⏱ Watch Hours" data-ar="⏱ ساعات المشاهدة">⏱ Watch Hours</div>
+      <div class="pgrid">
+        <div class="pcell"><span class="pcell-qty">1K hrs</span><span class="pcell-price">1000 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">2K hrs</span><span class="pcell-price">2000 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">3K hrs</span><span class="pcell-price">3000 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">4K hrs</span><span class="pcell-price">4000 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">5K hrs</span><span class="pcell-price">5000 dh</span></div>
+      </div>
+    </div>
+    <div class="psec">
+      <div class="psec-head" data-en="❤️ Likes" data-ar="❤️ إعجابات">❤️ Likes</div>
+      <div class="pgrid">
+        <div class="pcell"><span class="pcell-qty">1K</span><span class="pcell-price">10 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">5K</span><span class="pcell-price">20 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">10K</span><span class="pcell-price">35 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">50K</span><span class="pcell-price">180 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">100K</span><span class="pcell-price">310 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">500K</span><span class="pcell-price">1600 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">1M</span><span class="pcell-price">2800 dh</span></div>
+      </div>
+    </div>
+    <div class="psec">
+      <div class="psec-head" data-en="👥 Subscribers" data-ar="👥 مشتركون">👥 Subscribers</div>
+      <div class="pgrid">
+        <div class="pcell"><span class="pcell-qty">5K</span><span class="pcell-price">1500 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">10K</span><span class="pcell-price">2500 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">20K</span><span class="pcell-price">4800 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">30K</span><span class="pcell-price">6800 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">40K</span><span class="pcell-price">8800 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">50K</span><span class="pcell-price">11200 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">100K</span><span class="pcell-price">21800 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">1M</span><span class="pcell-price">212800 dh</span></div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- TIKTOK PANEL -->
+  <div class="tab-panel" id="panel-tiktok">
+    <div class="psec">
+      <div class="psec-head" data-en="❤️ Likes" data-ar="❤️ إعجابات">❤️ Likes</div>
+      <div class="pgrid">
+        <div class="pcell"><span class="pcell-qty">1K</span><span class="pcell-price">10 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">5K</span><span class="pcell-price">20 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">10K</span><span class="pcell-price">35 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">50K</span><span class="pcell-price">180 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">100K</span><span class="pcell-price">310 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">500K</span><span class="pcell-price">1600 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">1M</span><span class="pcell-price">2300 dh</span></div>
+      </div>
+    </div>
+    <div class="psec">
+      <div class="psec-head" data-en="👥 Followers" data-ar="👥 متابعون">👥 Followers</div>
+      <div class="pgrid">
+        <div class="pcell"><span class="pcell-qty">1K</span><span class="pcell-price">50 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">5K</span><span class="pcell-price">250 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">10K</span><span class="pcell-price">500 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">20K</span><span class="pcell-price">1000 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">30K</span><span class="pcell-price">1500 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">40K</span><span class="pcell-price">2000 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">50K</span><span class="pcell-price">2500 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">100K</span><span class="pcell-price">5000 dh</span></div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- FACEBOOK PANEL -->
+  <div class="tab-panel" id="panel-facebook">
+    <div class="psec">
+      <div class="psec-head" data-en="👍 Page Likes" data-ar="👍 إعجابات الصفحة">👍 Page Likes</div>
+      <div class="pgrid">
+        <div class="pcell"><span class="pcell-qty">1K</span><span class="pcell-price">30 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">5K</span><span class="pcell-price">130 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">10K</span><span class="pcell-price">250 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">50K</span><span class="pcell-price">1100 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">100K</span><span class="pcell-price">2000 dh</span></div>
+      </div>
+    </div>
+    <div class="psec">
+      <div class="psec-head" data-en="👥 Followers" data-ar="👥 متابعون">👥 Followers</div>
+      <div class="pgrid">
+        <div class="pcell"><span class="pcell-qty">1K</span><span class="pcell-price">30 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">5K</span><span class="pcell-price">130 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">10K</span><span class="pcell-price">250 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">50K</span><span class="pcell-price">1100 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">100K</span><span class="pcell-price">2000 dh</span></div>
+      </div>
+    </div>
+    <div class="psec">
+      <div class="psec-head" data-en="👁 Video Views" data-ar="👁 مشاهدات الفيديو">👁 Video Views</div>
+      <div class="pgrid">
+        <div class="pcell"><span class="pcell-qty">10K</span><span class="pcell-price">50 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">50K</span><span class="pcell-price">200 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">100K</span><span class="pcell-price">350 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">500K</span><span class="pcell-price">1500 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">1M</span><span class="pcell-price">2700 dh</span></div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- OTHER PANEL -->
+  <div class="tab-panel" id="panel-other">
+    <div class="psec">
+      <div class="psec-head">Twitter / X — <span data-en="Followers" data-ar="متابعون">Followers</span></div>
+      <div class="pgrid">
+        <div class="pcell"><span class="pcell-qty">1K</span><span class="pcell-price">260 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">5K</span><span class="pcell-price">1300 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">10K</span><span class="pcell-price">2500 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">50K</span><span class="pcell-price">11800 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">100K</span><span class="pcell-price">23100 dh</span></div>
+      </div>
+    </div>
+    <div class="psec">
+      <div class="psec-head">Spotify — <span data-en="Followers" data-ar="متابعون">Followers</span></div>
+      <div class="pgrid">
+        <div class="pcell"><span class="pcell-qty">1K</span><span class="pcell-price">15 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">5K</span><span class="pcell-price">50 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">10K</span><span class="pcell-price">100 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">50K</span><span class="pcell-price">400 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">100K</span><span class="pcell-price">750 dh</span></div>
+      </div>
+    </div>
+    <div class="psec">
+      <div class="psec-head">Telegram — <span data-en="Members (Ultra Fast)" data-ar="أعضاء (سرعة فائقة)">Members</span></div>
+      <div class="pgrid">
+        <div class="pcell"><span class="pcell-qty">10K</span><span class="pcell-price">20 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">20K</span><span class="pcell-price">40 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">50K</span><span class="pcell-price">100 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">100K</span><span class="pcell-price">200 dh</span></div>
+      </div>
+    </div>
+    <div class="psec">
+      <div class="psec-head">Kick — <span data-en="Followers" data-ar="متابعون">Followers</span></div>
+      <div class="pgrid">
+        <div class="pcell"><span class="pcell-qty">5K</span><span class="pcell-price">900 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">10K</span><span class="pcell-price">1700 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">20K</span><span class="pcell-price">3200 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">50K</span><span class="pcell-price">7400 dh</span></div>
+        <div class="pcell"><span class="pcell-qty">100K</span><span class="pcell-price">14300 dh</span></div>
+      </div>
+    </div>
+    <p style="color:var(--g);font-size:12px;margin-top:20px;letter-spacing:.5px" data-en="Also available: Snapchat, Discord, LinkedIn, Google Reviews, Website Visits. Contact us for custom quotes." data-ar="متاح أيضاً: سناب شات، ديسكورد، لينكد إن، تقييمات جوجل، زيارات المواقع. تواصل معنا للحصول على عروض مخصصة.">Also available: Snapchat, Discord, LinkedIn, Google Reviews, Website Visits. Contact us for custom quotes.</p>
+  </div>
+</section>
+ 
+<div class="glitch-div" style="position:relative;z-index:1;margin-top:80px"></div>
+ 
+<!-- PAYMENT -->
+<section id="payment" class="section reveal" style="padding-bottom:0">
+  <span class="sec-label" data-en="How to Pay" data-ar="كيفية الدفع">How to Pay</span>
+  <h2 class="sec-title" id="secPayTitle">PAYMENT METHODS</h2>
+  <div class="pay-grid">
+    <div class="pay-card">
+      <span class="pay-ic">
+        <!-- CIH Bank -->
+        <svg width="52" height="38" viewBox="0 0 120 44" fill="none">
+          <rect width="120" height="44" rx="6" fill="#1a1a1a"/>
+          <rect x="2" y="2" width="116" height="40" rx="5" stroke="#333" stroke-width="1" fill="none"/>
+          <!-- CIH text logo -->
+          <text x="10" y="30" font-family="Arial Black,sans-serif" font-size="22" font-weight="900" fill="white">CIH</text>
+          <!-- Arrow -->
+          <path d="M72 22 L85 15 L85 19 L100 19 L100 25 L85 25 L85 29 Z" fill="#E84040"/>
+          <!-- بنك text -->
+          <text x="104" y="30" font-family="Cairo,Arial,sans-serif" font-size="14" font-weight="700" fill="#E84040">بنك</text>
+        </svg>
+      </span>
+      <div class="pay-name">CIH Bank</div>
+      <div class="pay-sub" data-en="Bank Transfer" data-ar="تحويل بنكي">Bank Transfer</div>
+    </div>
+    <div class="pay-card">
+      <span class="pay-ic">
+        <!-- Cash Plus -->
+        <svg width="52" height="38" viewBox="0 0 120 44" fill="none">
+          <rect width="120" height="44" rx="6" fill="#1a1a1a"/>
+          <rect x="2" y="2" width="116" height="40" rx="5" stroke="#333" stroke-width="1" fill="none"/>
+          <!-- Circle icon -->
+          <circle cx="22" cy="22" r="14" fill="#00A896"/>
+          <circle cx="22" cy="22" r="10" fill="#1a1a1a"/>
+          <circle cx="22" cy="22" r="7" fill="#00A896"/>
+          <path d="M22 14 A8 8 0 0 1 30 22" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <!-- Cash Plus text -->
+          <text x="42" y="20" font-family="Arial Black,sans-serif" font-size="11" font-weight="900" fill="white">CASH</text>
+          <text x="42" y="34" font-family="Arial Black,sans-serif" font-size="11" font-weight="900" fill="#F5A623">PLUS</text>
+        </svg>
+      </span>
+      <div class="pay-name">Cash Plus</div>
+      <div class="pay-sub" data-en="Cash Transfer" data-ar="تحويل نقدي">Cash Transfer</div>
+    </div>
+    <div class="pay-card">
+      <span class="pay-ic">
+        <!-- Wafacash -->
+        <svg width="52" height="38" viewBox="0 0 120 44" fill="none">
+          <rect width="120" height="44" rx="6" fill="#1a1a1a"/>
+          <rect x="2" y="2" width="116" height="40" rx="5" stroke="#333" stroke-width="1" fill="none"/>
+          <!-- W icon -->
+          <text x="8" y="30" font-family="Arial Black,sans-serif" font-size="16" font-weight="900" fill="#F59E0B">Wafa</text>
+          <text x="64" y="30" font-family="Arial Black,sans-serif" font-size="16" font-weight="900" fill="white">cash</text>
+          <!-- Arrow icon -->
+          <path d="M55 16 L63 22 L55 28" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </span>
+      <div class="pay-name">Wafacash</div>
+      <div class="pay-sub" data-en="Cash Transfer" data-ar="تحويل نقدي">Cash Transfer</div>
+    </div>
+    <div class="pay-card">
+      <span class="pay-ic">
+        <!-- Bank Transfer generic -->
+        <svg width="44" height="38" viewBox="0 0 44 38" fill="none">
+          <rect width="44" height="38" rx="6" fill="#1a1a1a"/>
+          <rect x="2" y="2" width="40" height="34" rx="5" stroke="#333" stroke-width="1" fill="none"/>
+          <path d="M22 6L38 13H6L22 6z" fill="white" opacity=".9"/>
+          <rect x="9" y="14" width="4" height="12" rx="1" fill="white" opacity=".7"/>
+          <rect x="16" y="14" width="4" height="12" rx="1" fill="white" opacity=".7"/>
+          <rect x="24" y="14" width="4" height="12" rx="1" fill="white" opacity=".7"/>
+          <rect x="31" y="14" width="4" height="12" rx="1" fill="white" opacity=".7"/>
+          <rect x="6" y="27" width="32" height="3" rx="1" fill="white" opacity=".5"/>
+        </svg>
+      </span>
+      <div class="pay-name" data-en="Bank Transfer" data-ar="تحويل بنكي">Bank Transfer</div>
+      <div class="pay-sub" data-en="All Moroccan banks" data-ar="جميع البنوك المغربية">All Moroccan banks</div>
+    </div>
+  </div>
+</section>
+ 
+<!-- CONTACT -->
+<section id="contact" class="section reveal" style="padding-bottom:0">
+  <span class="sec-label" data-en="Get In Touch" data-ar="تواصل معنا">Get In Touch</span>
+  <h2 class="sec-title" id="secContactTitle">ORDER NOW</h2>
+  <div class="con-grid">
+    <a class="con-card" href="https://instagram.com/baddaj_chop" target="_blank">
+      <span class="con-ic">
+        <svg width="36" height="36" viewBox="0 0 44 44" fill="none">
+          <defs>
+            <radialGradient id="ig-con" cx="30%" cy="107%" r="130%">
+              <stop offset="0%" stop-color="#fdf497"/>
+              <stop offset="45%" stop-color="#fd5949"/>
+              <stop offset="60%" stop-color="#d6249f"/>
+              <stop offset="90%" stop-color="#285AEB"/>
+            </radialGradient>
+          </defs>
+          <rect width="44" height="44" rx="11" fill="url(#ig-con)"/>
+          <rect x="11" y="11" width="22" height="22" rx="6" stroke="white" stroke-width="2.2" fill="none"/>
+          <circle cx="22" cy="22" r="5.5" stroke="white" stroke-width="2.2" fill="none"/>
+          <circle cx="29.5" cy="14.5" r="1.4" fill="white"/>
+        </svg>
+      </span>
+      <div><div class="con-lbl">Instagram</div><div class="con-val">@baddaj_chop</div></div>
+    </a>
+    <a class="con-card" href="https://wa.me/212691066301" target="_blank">
+      <span class="con-ic">
+        <svg width="36" height="36" viewBox="0 0 44 44" fill="none">
+          <rect width="44" height="44" rx="11" fill="#25D366"/>
+          <path d="M22 8C14.3 8 8 14.3 8 22c0 2.5.7 4.9 1.9 6.9L8 36l7.3-1.9C17.1 35.3 19.5 36 22 36c7.7 0 14-6.3 14-14S29.7 8 22 8z" fill="white" opacity=".15"/>
+          <path d="M22 9.5C15.1 9.5 9.5 15.1 9.5 22c0 2.4.7 4.7 1.8 6.6l-1.9 6.9 7.1-1.8c1.9 1 4.1 1.6 6.5 1.6 6.9 0 12.5-5.6 12.5-12.5S28.9 9.5 22 9.5z" fill="#25D366"/>
+          <path d="M17.2 15.5c-.4-.9-1.2-.7-1.6-.7-.4 0-.9-.1-1.4.4-.5.5-1.8 1.7-1.8 4.2s1.8 4.9 2.1 5.2c.3.3 3.5 5.4 8.5 7.4 4.2 1.7 5.1 1.3 6 1.2.9-.1 2.9-1.2 3.3-2.3.4-1.1.4-2.1.3-2.3-.2-.2-.5-.3-1-.5s-3-1.5-3.5-1.7c-.5-.2-.8-.2-1.2.3-.3.5-1.3 1.6-1.6 1.9-.3.3-.6.4-1.1.1-2.5-1.2-4.1-2.2-5.7-5-.4-.7.5-.7 1.4-2.4.2-.4.1-.7-.1-1-.2-.2-1.2-2.9-1.6-3.8z" fill="white"/>
+        </svg>
+      </span>
+      <div><div class="con-lbl">WhatsApp</div><div class="con-val">0691066301</div></div>
+    </a>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <span class="ft-logo">BADDAJ CHOP</span>
+  <div class="ft-right">
+    <a href="#services" data-en="Services" data-ar="الخدمات">Services</a>
+    <a href="#payment" data-en="Payment" data-ar="الدفع">Payment</a>
+    <a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a>
+  </div>
+  <span style="color:var(--g);font-size:10px;letter-spacing:1px" data-en="Fast · Safe · Quality · 24/7" data-ar="سريع · آمن · جودة · 24/7">Fast · Safe · Quality · 24/7</span>
+</footer>
+ 
+<!-- ══════════════════════════════════
+     ORDER MODAL
+══════════════════════════════════ -->
+<div id="orderModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Place Order">
+  <div class="modal-box">
+ 
+    <!-- ── Top bar ── -->
+    <div class="m-topbar">
+      <div class="m-pill">
+        <span id="mo-icon" class="m-pill-ic">📸</span>
+        <span id="mo-plat" class="m-pill-name">Instagram</span>
+      </div>
+      <span id="mo-svc" class="m-svc-tag">Followers</span>
+      <button class="m-close" onclick="closeModal()" aria-label="Close">✕</button>
+    </div>
+ 
+    <!-- ── Order summary ── -->
+    <div class="m-summary">
+      <div class="m-sum-col">
+        <span class="m-sum-lbl" data-en="Service" data-ar="الخدمة">Service</span>
+        <span class="m-sum-val" id="mo-svc-sm">Followers</span>
+      </div>
+      <div class="m-sum-div"></div>
+      <div class="m-sum-col" style="text-align:center">
+        <span class="m-sum-lbl" data-en="Quantity" data-ar="الكمية">Quantity</span>
+        <span class="m-sum-val m-big" id="mo-qty">10K</span>
+      </div>
+      <div class="m-sum-div"></div>
+      <div class="m-sum-col" style="text-align:center">
+        <span class="m-sum-lbl" data-en="Price" data-ar="السعر">Price</span>
+        <span class="m-sum-val m-big m-glow" id="mo-price">250 dh</span>
+      </div>
+    </div>
+ 
+    <!-- ── Form ── -->
+    <div class="m-form">
+ 
+      <label class="m-lbl">
+        <span data-en="Your Account / Profile URL" data-ar="رابط حسابك أو اسم المستخدم">Your Account / Profile URL</span>
+        <span style="color:#ff5566;margin-left:3px">*</span>
+      </label>
+      <div class="m-inp-wrap">
+        <span class="m-inp-pre">@</span>
+        <input id="mo-user" class="m-inp" type="text" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off"/>
+      </div>
+      <p class="m-hint" data-en="No password needed — just your public username or profile link" data-ar="لا نحتاج كلمة المرور — فقط اسم حسابك العام أو رابط صفحتك">No password needed — just your public username or profile link</p>
+ 
+      <label class="m-lbl" style="margin-top:18px">
+        <span data-en="Additional Notes" data-ar="ملاحظات إضافية">Additional Notes</span>
+        <span class="m-opt" data-en="(optional)" data-ar="(اختياري)">(optional)</span>
+      </label>
+      <textarea id="mo-note" class="m-ta" rows="2"></textarea>
+ 
+    </div>
+ 
+    <!-- ── Trust row ── -->
+    <div class="m-trust">
+      <div class="m-trust-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span data-en="Ultra Fast" data-ar="سرعة فائقة">Ultra Fast</span>
+      </div>
+      <div class="m-trust-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="2.2" fill="none"/><path d="M8 11V7a4 4 0 0 1 8 0v4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg>
+        <span data-en="No Password" data-ar="بدون كلمة مرور">No Password</span>
+      </div>
+      <div class="m-trust-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <span data-en="Real Results" data-ar="نتائج حقيقية">Real Results</span>
+      </div>
+      <div class="m-trust-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.2" fill="none"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg>
+        <span data-en="24/7 Support" data-ar="دعم 24/7">24/7 Support</span>
+      </div>
+    </div>
+ 
+    <!-- ── CTA ── -->
+    <button id="mo-send" class="m-cta" onclick="submitOrder()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+        <path d="M13.507 1.012C6.64 1.012 1.072 6.58 1.072 13.445c0 2.229.585 4.419 1.697 6.35L1 23.012l3.317-1.741a12.415 12.415 0 0 0 9.19 3.174c6.865 0 12.435-5.568 12.435-12.435 0-6.866-5.57-12.998-12.435-12.998z" stroke="#25D366" stroke-width="1.5" fill="none"/>
+      </svg>
+      <span data-en="Send Order via WhatsApp" data-ar="إرسال الطلب عبر واتساب">Send Order via WhatsApp</span>
+    </button>
+ 
+    <p class="m-foot" data-en="We'll confirm your order & payment details within minutes." data-ar="سنؤكد طلبك وتفاصيل الدفع خلال دقائق.">We'll confirm your order & payment details within minutes.</p>
+  </div>
+</div>
+ 
+ 
+<!-- FOOTER -->
+<footer>
+  <span class="ft-logo">BADDAJ CHOP</span>
+  <div class="ft-right">
+    <a href="#services" data-en="Services" data-ar="الخدمات">Services</a>
+    <a href="#payment" data-en="Payment" data-ar="الدفع">Payment</a>
+    <a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a>
+  </div>
+  <span style="color:var(--g);font-size:10px;letter-spacing:1px" data-en="Fast · Safe · Quality · 24/7" data-ar="سريع · آمن · جودة · 24/7">Fast · Safe · Quality · 24/7</span>
+</footer>
+ 
+  <!-- ✦ External JavaScript ✦ -->
+  <script src="app.js"></script>
+</body>
+</html>
+ 
